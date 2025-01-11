@@ -47,6 +47,9 @@ const AddWorker = (props) => {
 
   return (
     <Fragment>
+      {error && (
+        <ErrorModal setWorkers={props.setWorkers} onConfirm={errorHandler} error={error}></ErrorModal>
+      )}
       <Card className="mt-7">
         <form
           action=""
@@ -78,9 +81,7 @@ const AddWorker = (props) => {
           </Button>
         </form>
       </Card>
-      {error && (
-        <ErrorModal onConfirm={errorHandler} error={error}></ErrorModal>
-      )}
+      
     </Fragment>
   );
 };
